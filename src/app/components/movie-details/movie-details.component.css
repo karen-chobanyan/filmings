@@ -1,0 +1,13 @@
+.details-poster{
+    height: 400px;
+    width: auto;
+}
+
+.details{
+    margin-left: 40px;
+}
+
+.title span{
+    font-weight: 200;
+    font-size: 70%;
+}

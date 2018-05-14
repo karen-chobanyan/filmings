@@ -1,0 +1,15 @@
+<div class="container" fxLayout="row"  fxLayoutAlign="left none" *ngIf="movie">
+    <img class="details-poster" mat-card-image src="{{movie.Poster != 'N/A'? movie.Poster : '/assets/no-image.jpg'}}" alt={{movie.Title}}>
+    <div class="details">
+      <h2 class="title">{{movie.Title}} | <span>{{movie.Genre}}</span></h2>
+      <h4>Year: {{movie.Year}}</h4>
+      <h4 *ngIf="movie.Awards != 'N/A'">{{movie.Awards}}</h4>
+      <h4>Actors: {{movie.Actors}}</h4>
+      <h4>Director: {{movie.Director}}</h4>
+      <p>{{movie.Plot}}</p>
+      <button mat-icon-button color="accent" (click)="removeFromFavorites(movie.imdbID)">
+          <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+        </button>
+    </div>
+
+</div>
