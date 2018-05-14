@@ -6,6 +6,11 @@ import { Router,  RouterLink } from '@angular/router';
 import { StorageService } from '../../storage.service';
 import { MoviesService } from '../../movies.service';
 
+interface SearchResult {
+  Search: any;
+  totalResults: string;
+  Response: string;
+}
 
 @Component({
   selector: 'app-search',
@@ -34,7 +39,7 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     this.rForm.valueChanges.subscribe(val => {
-      this.api.getSearchResults(val.name).subscribe( movies => {
+      this.api.getSearchResults(val.name).subscribe( (movies: SearchResult) => {
         this.list = movies.Search;
         console.log(this.list);
       });
@@ -44,9 +49,9 @@ export class SearchComponent implements OnInit {
   search(post) {
     this.name = post.name;
     console.log(this.name);
-    this.api.getSearchResults(this.name).subscribe( movies => {
+    this.api.getSearchResults(this.name).subscribe( (movies: SearchResult) => {
       this.movies = movies.Search;
-      console.log(movies.Search);
+      console.log(movies);
     });
   }
 

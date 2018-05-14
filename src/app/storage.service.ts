@@ -17,10 +17,8 @@ export class StorageService {
         favorites = [];
       }
       console.log(favorites.filter(fav => fav.imdbID === movie.imdbID).length);
-      
-      if (favorites.filter(fav => fav.imdbID === movie.imdbID).length == 0) {
+      if (favorites.filter(fav => fav.imdbID === movie.imdbID).length === 0) {
         console.log(favorites);
-        
         favorites.push(movie);
         console.log(favorites);
         return this.localStorage.setItem('favorites', favorites).subscribe();
